@@ -13,35 +13,4 @@ const { NotImplementedError } = require('../extensions/index.js');
  * queue.dequeue(); // returns the top element from queue and deletes it, returns 1
  * queue.getUnderlyingList() // returns { value: 3, next: null }
  */
- class Queue {
-  constructor(x) {
-    this.value = x;
-    this.next = null;
-  }
 
-  getUnderlyingList() {
-    return this.value;
-  }
-
-  enqueue(value) {
-    const node = new ListNode(value);
-
-    if (!this.next) {
-      this.next = node
-      this.value = node
-    } 
-    this.next.next = node
-    this.next = node
-   
-}
-
-  dequeue() {
-    const value = this.value.value;
-    this.value = this.value.next;
-    return value;
-  }
-}
-
-module.exports = {
-  Queue
-};
